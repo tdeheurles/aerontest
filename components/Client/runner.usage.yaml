@@ -1,0 +1,12 @@
+definition: A simple module to test aeron
+family: service
+commands:
+  e2e:
+    help: stop, clean, build and start client
+    files:
+      - runner.build.sh
+      - runner.start.sh
+  build:
+    help: build client
+  start:
+    help: start client

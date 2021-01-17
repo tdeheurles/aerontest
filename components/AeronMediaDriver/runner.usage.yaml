@@ -1,0 +1,15 @@
+definition: A simple module to test aeron
+family: service
+commands:
+  e2e:
+    help: stop, clean, build and start media driver
+    files:
+      - runner.build.sh
+      - runner.data_delete.sh
+      - runner.start.sh
+  build:
+    help: build the module
+  start:
+    help: start media driver
+  data_delete:
+    help: delete media driver data

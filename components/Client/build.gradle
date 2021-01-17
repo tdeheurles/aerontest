@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.real-logic.aeron:aeron-agent:1.31.1'
+    compile "uk.co.real-logic:sbe-tool:1.20.4"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+task generateMessages(type: JavaExec) {
+    main = 'uk.co.real_logic.sbe.SbeTool'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperties(
+            'sbe.output.dir': 'src/java/com/tdeheurles/aerontest/generated',
+            'sbe.target.language': 'Java',
+            'sbe.validation.stop.on.error': 'true',
+            'sbe.validation.xsd': 'src/main/resources/sbe/sbe.xsd')
+    args = [
+            'src/main/resources/messages.xml'
+    ]
+}

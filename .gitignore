@@ -1,0 +1,8 @@
+# IDE
+.idea/
+aerontest.iml
+
+# GRADLE
+components/**/.gradle
+components/**/build
+components/**/gradle

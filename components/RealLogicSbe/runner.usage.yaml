@@ -1,0 +1,5 @@
+definition: A simple module to test aeron
+family: service
+commands:
+  generateProtoc:
+    help: generate java class
