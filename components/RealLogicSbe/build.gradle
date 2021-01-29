@@ -16,6 +16,7 @@ dependencies {
     compile "uk.co.real-logic:sbe-tool:1.21.0"
     implementation "org.agrona:agrona:1.9.0"
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "com.google.protobuf:protobuf-java:3.14.0"
 }
 
 task generateMessages(type: JavaExec) {

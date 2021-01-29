@@ -6,3 +6,4 @@ aerontest.iml
 components/**/.gradle
 components/**/build
 components/**/gradle
+components/Cluster/cluster_data

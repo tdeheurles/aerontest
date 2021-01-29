@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.tdeheurles'
+group 'com.tdeheurles.aerontest.cluster'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.real-logic.aeron:aeron-agent:1.31.1'
+    implementation 'com.github.real-logic.aeron:aeron-all:1.32.0'
 }
 
 test {

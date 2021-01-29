@@ -2,9 +2,6 @@ syntax = "proto2";
 
 package tutorial;
 
-option java_package = "com.tdeheurles.tutorial";
-option java_outer_classname = "ProtoDemoClass";
-
 enum SampleEnum {
   VALUE_1 = 0;
   VALUE_2 = 1;

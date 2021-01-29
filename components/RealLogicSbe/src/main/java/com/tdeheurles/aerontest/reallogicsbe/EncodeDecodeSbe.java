@@ -19,32 +19,20 @@ public class EncodeDecodeSbe {
         final var decoder = new SampleSimpleDecoder();
         final var headerDecoder = new MessageHeaderDecoder();
 
-        for (var i = 0; i < 1_000_000; i++) {
+        for (var i = 0; i < 10_000_000; i++) {
             // encode
             encoder.wrapAndApplyHeader(directBuffer, 0, messageHeaderEncoder);
             encoder.sequence(123).enumField(SampleEnum.VALUE_1).message("a message");
 
-            int encodedLength = MessageHeaderEncoder.ENCODED_LENGTH + encoder.encodedLength();
-
             // decode
-            int bufferOffset = 0;
-            headerDecoder.wrap(directBuffer, bufferOffset);
-
-            final var templateId = headerDecoder.templateId();
-            if (templateId != SampleSimpleDecoder.TEMPLATE_ID) {
-                throw new IllegalStateException("Template ids do not match");
-            }
-
-            final var actingBlockLength = headerDecoder.blockLength();
-            final var actingVersion = headerDecoder.version();
-
-            bufferOffset += headerDecoder.encodedLength();
-            decoder.wrap(directBuffer, bufferOffset, actingBlockLength, actingVersion);
+            headerDecoder.wrap(directBuffer, 0);
+            decoder.wrap(directBuffer, headerDecoder.encodedLength(), headerDecoder.blockLength(),
+                    headerDecoder.version());
         }
 
         var finish = Instant.now();
         long timeElapsed = Duration.between(start, finish).toMillis();
 
-        System.out.println("time: "+timeElapsed);
+        System.out.println("time: " + timeElapsed);
     }
 }

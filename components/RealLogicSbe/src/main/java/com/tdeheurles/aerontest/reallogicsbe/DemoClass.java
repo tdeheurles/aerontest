@@ -6,7 +6,7 @@ public class DemoClass {
     public final String message;
 
     public DemoClass(int sequence, SampleEnum enumField, String message) {
-        this.sequence = 123;
+        this.sequence = sequence;
         this.enumField = enumField;
         this.message = message;
     }
