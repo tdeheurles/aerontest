@@ -7,3 +7,6 @@ components/**/.gradle
 components/**/build
 components/**/gradle
 components/Cluster/cluster_data
+
+# ATYOS RUNNER
+do.env

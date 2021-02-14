@@ -1,0 +1,7 @@
+definition: sample for babl
+family: service
+commands:
+  build:
+    help: build server and client
+  server:
+    help: start server

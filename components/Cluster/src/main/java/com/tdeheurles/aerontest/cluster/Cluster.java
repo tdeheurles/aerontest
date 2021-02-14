@@ -1,7 +1,5 @@
 package com.tdeheurles.aerontest.cluster;
 
-import com.tdeheurles.aerontest.utils.ConsoleColors;
-import com.tdeheurles.aerontest.utils.ConsoleTheme;
 import io.aeron.ChannelUriStringBuilder;
 import io.aeron.CommonContext;
 import io.aeron.archive.Archive;
@@ -9,6 +7,7 @@ import io.aeron.archive.ArchiveThreadingMode;
 import io.aeron.archive.client.AeronArchive;
 import io.aeron.cluster.ClusteredMediaDriver;
 import io.aeron.cluster.ConsensusModule;
+import io.aeron.cluster.service.ClusteredService;
 import io.aeron.cluster.service.ClusteredServiceContainer;
 import io.aeron.driver.MediaDriver;
 import io.aeron.driver.MinMulticastFlowControlSupplier;
@@ -17,60 +16,25 @@ import org.agrona.concurrent.NoOpLock;
 import org.agrona.concurrent.ShutdownSignalBarrier;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.SortedSet;
 
-public class Start {
+import static com.tdeheurles.aerontest.cluster.Configuration.*;
 
-    private static final String CLUSTER_NODE_ID = "cluster.node.id";
-    private static final String ARCHIVE_CONTROL_REQUEST_PORT = "cluster.archive.control_request.port";
-    private static final String CLIENT_FACING_PORT = "cluster.client_facing.port";
-    private static final String MEMBER_FACING_PORT = "cluster.member_facing.port";
-    private static final String LOG_PORT = "cluster.log.port";
-    private static final String LOG_CONTROL_PORT = "cluster.log_control.port";
-    private static final String TRANSFER_PORT = "cluster.transfer.port";
-    private static final String MEMBERS_CONFIG = "cluster.members.config";
-    private static final int TERM_LENGTH = 64 * 1024;
+public class Cluster {
 
-    public static void main(String[] args) {
-        // PARAMETERS
-        System.out.println(ConsoleTheme.MAIN0 + "=== AERON CLUSTER ===" + ConsoleColors.RESET);
-        System.out.println(ConsoleTheme.MAIN1 + "Parameters:" + ConsoleColors.RESET);
-        var properties = System.getProperties();
-        Set.of(
-                CLUSTER_NODE_ID,
-                ARCHIVE_CONTROL_REQUEST_PORT,
-                CLIENT_FACING_PORT,
-                MEMBER_FACING_PORT,
-                LOG_PORT,
-                LOG_CONTROL_PORT,
-                TRANSFER_PORT,
-                MEMBERS_CONFIG
-        ).forEach(elt -> {
-            if (!properties.containsKey(elt)) {
-                System.err.println(ConsoleTheme.ERROR0 + "Parameter " + elt + " is missing" + ConsoleColors.RESET);
-                System.exit(1);
-            }
-            System.out.printf("  %-40s: %10s%n", elt, System.getProperty(elt));
-        });
-        System.out.println("");
+    public void start(ClusteredService clusteredService) {
 
-        var nodeId = Integer.parseInt(System.getProperty(CLUSTER_NODE_ID));
+        Configuration.AssertAndDumpCluster();
+
         var archiveControlRequestPort = Integer.parseInt(System.getProperty(ARCHIVE_CONTROL_REQUEST_PORT));
-        var clientFacingPort = Integer.parseInt(System.getProperty(CLIENT_FACING_PORT));
-        var memberFacingPort = Integer.parseInt(System.getProperty(MEMBER_FACING_PORT));
-        var logPort = Integer.parseInt(System.getProperty(LOG_PORT));
         var logControlPort = Integer.parseInt(System.getProperty(LOG_CONTROL_PORT));
-        var transferPort = Integer.parseInt(System.getProperty(TRANSFER_PORT));
         var membersConfig = System.getProperty(MEMBERS_CONFIG);
 
 
-        // CONFIGURE
+        // -- CONFIGURE
+        var nodeId = Integer.parseInt(System.getProperty(CLUSTER_NODE_ID));
         final var baseDir = new File(System.getProperty("user.dir"), "cluster_data/" + nodeId);
-        System.out.println("baseDir: " + baseDir);
         final var aeronDirName = CommonContext.getAeronDirectoryName() + "-" + nodeId + "-driver";
+        System.out.println("baseDir: " + baseDir);
         final var shutdownBarrier = new ShutdownSignalBarrier();
 
         // ---- MEDIA DRIVER
@@ -125,21 +89,19 @@ public class Start {
                         .logChannel(logControlChannel)
                         .archiveContext(aeronArchiveContext.clone());
 
-        // ---- CLUSTERED SERVICE
-        final var clusteredServiceContext =
-                new ClusteredServiceContainer.Context()
-                        .aeronDirectoryName(aeronDirName)
-                        .archiveContext(aeronArchiveContext.clone())
-                        .clusterDir(new File(baseDir, "service"))
-                        .clusteredService(new DemoClusteredService())
-                        .errorHandler(BasicErrorHandler.errorHandler("Clustered Service"));
+        var clusteredServiceContainerContext = new ClusteredServiceContainer.Context()
+                .aeronDirectoryName(aeronDirName)
+                .archiveContext(aeronArchiveContext.clone())
+                .clusterDir(new File(baseDir, "service"))
+                .clusteredService(clusteredService)
+                .errorHandler(BasicErrorHandler.errorHandler("Clustered Service"));
 
         // RUN THE PROCESS
         try (
-                var clusteredMediaDriver = ClusteredMediaDriver.launch(
+                var ignored = ClusteredMediaDriver.launch(
                         mediaDriverContext, archiveContext, consensusModuleContext);
-                var container = ClusteredServiceContainer.launch(
-                        clusteredServiceContext);
+                var ignored1 = ClusteredServiceContainer.launch(
+                        clusteredServiceContainerContext);
         ) {
             shutdownBarrier.await();                                                                             // <3>
         }

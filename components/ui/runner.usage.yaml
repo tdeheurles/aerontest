@@ -1,0 +1,5 @@
+definition: Ui sample
+family: service
+commands:
+  start:
+    help: start client

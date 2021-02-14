@@ -1,0 +1,43 @@
+# https://eksctl.io/usage/schema/
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: dev
+  region: <% aws_region %>
+  version: "1.18"
+  tags:
+    role: devops
+
+managedNodeGroups:
+  - name: spot-1
+    instanceTypes: [
+        "c5.large",
+        "t3.large"
+    ]
+    minSize: 4
+    desiredCapacity: 4
+    maxSize: 4
+    spot: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        appMeshPreview: true
+        ebs: true
+        fsx: true
+        efs: true
+        albIngress: true
+        xRay: true
+        cloudWatch: true
+    labels:
+      spot: "true"
+    tags:
+      spot: "true"
+
+cloudwatch:
+  clusterLogging:
+    enableTypes: ["*"]

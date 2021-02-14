@@ -1,0 +1,15 @@
+definition: sample for gRPC
+family: service
+commands:
+  build:
+    help: build server and client
+  e2e:
+    help: run all
+    files:
+      - runner.build.sh
+      - runner.client.sh
+      - runner.server.sh
+  client:
+    help: start client
+  server:
+    help: start server

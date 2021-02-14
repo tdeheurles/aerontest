@@ -6,6 +6,7 @@ group 'com.tdeheurles'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java-library'
+apply plugin: 'idea'
 
 repositories {
     mavenCentral()

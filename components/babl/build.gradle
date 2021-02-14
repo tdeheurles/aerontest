@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tdeheurles.aerontest.babl'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.aitusoftware/babl
+    //compile group: 'com.aitusoftware', name: 'babl', version: '0.10.0'
+    implementation 'com.aitusoftware:babl:0.10.0'
+    implementation 'org.agrona:agrona:1.8.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
