@@ -7,18 +7,15 @@ function App() {
   const subject = webSocket("ws:localhost:8081")
   const [mounted, setMounted] = useState(false);
 
-  if (!mounted) {
+  useEffect(() =>{
     subject.subscribe(
         msg => console.log('message received: ' + msg),
         err => console.log(err),
         () => console.log("complete")
     );
 
-    subject.next({message: "Hello, I'm coming from browser"});
-    subject.next({message: "This is my second message"});
-  }
-
-  useEffect(() =>{setMounted(true)},[]);
+    subject.next("Hello, I'm `browser` and you ?");
+  });
 
   return (
     <div className="App">

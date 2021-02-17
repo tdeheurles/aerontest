@@ -3,5 +3,6 @@
 this_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 (
   cd "${this_directory}" || exit 1
-  yarn start
+  export PATH="$PATH:../binaries/node-14.15.5/bin"
+  npm start
 )
