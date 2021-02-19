@@ -1,5 +1,7 @@
 definition: Ui sample
-family: service
+family: frontend
 commands:
   start:
     help: start client
+  get_dependencies:
+    help: install ui dependencies
