@@ -8,7 +8,6 @@ import com.aitusoftware.babl.websocket.BablServer;
 import com.aitusoftware.babl.websocket.DisconnectReason;
 import com.aitusoftware.babl.websocket.SendResult;
 import com.aitusoftware.babl.websocket.Session;
-import com.tdeheurles.aerontest.utils.ConsoleLog;
 import org.agrona.DirectBuffer;
 import org.agrona.ExpandableDirectByteBuffer;
 import org.agrona.MutableDirectBuffer;

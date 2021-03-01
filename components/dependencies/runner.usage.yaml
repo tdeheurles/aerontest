@@ -1,0 +1,9 @@
+definition: install dependencies for the project
+family: development
+commands:
+  get_jdk:
+    help: install java development kit
+  get_jre:
+    help: install java runtime environment
+  get_node:
+    help: install node

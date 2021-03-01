@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { webSocket } from "rxjs/webSocket";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const subject = webSocket("ws:localhost:8081")
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() =>{
     subject.subscribe(

@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+service_id="<% service_id %>"
+zulu_jre_java="<% zulu_jre_java %>"
+
+node_id=2
+
 THIS_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-NODE_ID=2
-SERVICE_ID="<% service_id %>"
-
+project_root="${THIS_DIRECTORY}/../.."
 (
-  cd "${THIS_DIRECTORY}" || exit 1
-  . ./exec_common.sh
+  "${project_root}"/do --host --component dependencies --command get_jre
+  . "${THIS_DIRECTORY}"/exec_common.sh
+  JAVA="${project_root}/${zulu_jre_java}"
 
-  mkdir -p "${CLUSTER_DATA}/${NODE_ID}"
+  cd "${THIS_DIRECTORY}" || exit 1
+  mkdir -p "${CLUSTER_DATA}/${node_id}"
   start_clustered_node \
-    "${SERVICE_ID}" \
-    "${NODE_ID}" \
-    "8${NODE_ID}00" \
-    "8${NODE_ID}01" \
-    "8${NODE_ID}02" \
-    "8${NODE_ID}03" \
-    "8${NODE_ID}04" \
-    "8${NODE_ID}05"
+    "${service_id}" \
+    "${node_id}" \
+    "8${node_id}00" \
+    "8${node_id}01" \
+    "8${node_id}02" \
+    "8${node_id}03" \
+    "8${node_id}04" \
+    "8${node_id}05"
 )

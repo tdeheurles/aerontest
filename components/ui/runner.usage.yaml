@@ -5,3 +5,5 @@ commands:
     help: start client
   get_dependencies:
     help: install ui dependencies
+  generate:
+    help: generate javascript code from proto files

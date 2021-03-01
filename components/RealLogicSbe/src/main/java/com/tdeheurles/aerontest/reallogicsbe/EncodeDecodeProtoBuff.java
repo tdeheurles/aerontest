@@ -1,12 +1,9 @@
 package com.tdeheurles.aerontest.reallogicsbe;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import org.agrona.concurrent.UnsafeBuffer;
 
-import java.nio.ByteBuffer;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Arrays;
 
 public class EncodeDecodeProtoBuff {
     public static void main(String[] args) throws InvalidProtocolBufferException {

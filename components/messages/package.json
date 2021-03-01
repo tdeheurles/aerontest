@@ -1,0 +1,11 @@
+{
+  "description": "build protocol buffer files",
+  "repository": "-",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@improbable-eng/grpc-web": "^0.14.0",
+    "@types/google-protobuf": "^3.7.4",
+    "google-protobuf": "^3.15.1",
+    "ts-protoc-gen": "^0.14.0"
+  }
+}

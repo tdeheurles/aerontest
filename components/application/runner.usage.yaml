@@ -1,0 +1,5 @@
+definition: manipulate whole application
+family: environment
+commands:
+  todo:
+    help: undefined

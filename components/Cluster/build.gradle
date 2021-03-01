@@ -13,6 +13,15 @@ repositories {
 
 dependencies {
     implementation 'com.github.real-logic.aeron:aeron-all:1.32.0'
+    implementation "com.google.protobuf:protobuf-java:3.14.0"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir '../messages/generated/java'
+        }
+    }
 }
 
 test {

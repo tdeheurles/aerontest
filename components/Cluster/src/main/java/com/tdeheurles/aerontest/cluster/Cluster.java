@@ -23,7 +23,7 @@ public class Cluster {
 
     public void start(ClusteredService clusteredService) {
 
-        Configuration.AssertAndDumpCluster();
+        AssertAndDumpCluster();
 
         var archiveControlRequestPort = Integer.parseInt(System.getProperty(ARCHIVE_CONTROL_REQUEST_PORT));
         var logControlPort = Integer.parseInt(System.getProperty(LOG_CONTROL_PORT));

@@ -7,13 +7,23 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.aitusoftware/babl
-    //compile group: 'com.aitusoftware', name: 'babl', version: '0.10.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.aitusoftware:babl:0.10.0'
     implementation 'org.agrona:agrona:1.8.0'
+    implementation "com.google.protobuf:protobuf-java:3.14.0"
+    implementation 'com.github.real-logic.aeron:aeron-all:1.32.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir '../messages/generated/java'
+        }
+    }
 }
 
 test {

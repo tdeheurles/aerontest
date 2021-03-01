@@ -1,0 +1,5 @@
+definition: definitions of the messages
+family: development
+commands:
+  generate:
+    help: generate code for the different language from the messages

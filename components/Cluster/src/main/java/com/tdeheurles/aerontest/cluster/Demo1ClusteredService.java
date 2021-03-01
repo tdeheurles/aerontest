@@ -1,6 +1,5 @@
 package com.tdeheurles.aerontest.cluster;
 
-import com.tdeheurles.aerontest.utils.ConsoleLog;
 import io.aeron.ExclusivePublication;
 import io.aeron.Image;
 import io.aeron.cluster.codecs.CloseReason;
