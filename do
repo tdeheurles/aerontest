@@ -3,7 +3,7 @@
 # SET VARIABLES
 THIS_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
-export RUNNER_CHANNEL_OR_VERSION="${RUNNER_CHANNEL_OR_VERSION:=master}"
+export RUNNER_CHANNEL_OR_VERSION="${RUNNER_CHANNEL_OR_VERSION:=1.4.1-rc}"
 export RUNNER_HOME="${RUNNER_HOME:=${HOME}/.runner}"
 export RUNNER_COMPONENTS_DIR="${RUNNER_COMPONENTS_DIR:=${THIS_DIRECTORY}/components}"
 if [[ -n ${RUNNER_EXEC_DIR+x} ]];then

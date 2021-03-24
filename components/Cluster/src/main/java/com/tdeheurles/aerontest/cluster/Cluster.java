@@ -28,7 +28,7 @@ public class Cluster {
         var archiveControlRequestPort = Integer.parseInt(System.getProperty(ARCHIVE_CONTROL_REQUEST_PORT));
         var logControlPort = Integer.parseInt(System.getProperty(LOG_CONTROL_PORT));
         var membersConfig = System.getProperty(MEMBERS_CONFIG);
-
+        final var ip = System.getProperty(IP);
 
         // -- CONFIGURE
         var nodeId = Integer.parseInt(System.getProperty(CLUSTER_NODE_ID));
@@ -50,7 +50,7 @@ public class Cluster {
         var archiveContextUdpChannel = new ChannelUriStringBuilder()
                 .media("udp")
                 .termLength(TERM_LENGTH)
-                .endpoint("localhost:" + archiveControlRequestPort)
+                .endpoint(ip + ":" + archiveControlRequestPort)
                 .build();
         System.out.println("archiveContextUdpChannel: " + archiveContextUdpChannel);
         final var archiveContext = new Archive.Context()
@@ -76,7 +76,7 @@ public class Cluster {
                         .media("udp")
                         .termLength(TERM_LENGTH)
                         .controlMode(CommonContext.MDC_CONTROL_MODE_MANUAL)
-                        .controlEndpoint("localhost:" + logControlPort)
+                        .controlEndpoint(ip + ":" + logControlPort)
                         .build();
         System.out.println("logControlChannel: " + logControlChannel);
         final var consensusModuleContext =
@@ -87,7 +87,8 @@ public class Cluster {
                         .clusterDir(new File(baseDir, "consensus-module"))
                         .ingressChannel("aeron:udp?term-length=64k")
                         .logChannel(logControlChannel)
-                        .archiveContext(aeronArchiveContext.clone());
+                        .archiveContext(aeronArchiveContext.clone())
+                        .leaderHeartbeatTimeoutNs(1_000_000_000);
 
         var clusteredServiceContainerContext = new ClusteredServiceContainer.Context()
                 .aeronDirectoryName(aeronDirName)

@@ -34,6 +34,8 @@ public class Demo2ClusteredService implements ClusteredService {
         ConsoleLog.main_2("onSessionMessage");
         ConsoleLog.main_3("session(" + session + ") - timestamp(" + timestamp + ") - offset(" + offset + ")");
 
+        System.out.println("role: " + this.cluster.role().toString());
+
         try {
             // Print message received from cluster
             final var messageBytes = buffer.getStringWithoutLengthUtf8(offset, length).getBytes();

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-THIS_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-
+this_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+project_root="${this_directory}/../.."
 (
-  cd "${THIS_DIRECTORY}" || exit 1
+  cd "${project_root}" || exit 1
 
-  ./build.sh
-  ./data_delete.sh
-  ./start.sh
+  ./do --component AeronMediaDriver --command build
+  ./do --component AeronMediaDriver --command delete
+  ./do --component AeronMediaDriver --command start
 )

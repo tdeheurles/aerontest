@@ -17,9 +17,14 @@
 
 ## Demo2
 - works with:
-    - Babl.Demo0
+    - Babl.Demo0 to 3
 - see https://golb.hplar.ch/2020/04/rxjs-websocket.html
 - Angular
 - RxJsWebSocket
     - reconnection
 - Protobuf
+
+```shell
+RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
+./do --component="ui" --command="start" --id=2
+```

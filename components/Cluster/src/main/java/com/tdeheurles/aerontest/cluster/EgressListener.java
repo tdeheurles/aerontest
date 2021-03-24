@@ -7,6 +7,8 @@ import io.aeron.driver.ThreadingMode;
 public class EgressListener {
     public void start(EgressListenerService egressListenerService) {
 
+        final var address = "localhost";
+
         Configuration.AssertAndDumpClient();
 
         final String ingressEndpoints = System.getProperty(Configuration.INGRESS_ENDPOINTS);
@@ -21,7 +23,7 @@ public class EgressListener {
                 var aeronCluster = AeronCluster.connect(
                         new AeronCluster.Context()
                                 .egressListener(egressListenerService)
-                                .egressChannel("aeron:udp?endpoint=localhost:0")
+                                .egressChannel("aeron:udp?endpoint=" + address + ":0")
                                 .aeronDirectoryName(mediaDriver.aeronDirectoryName())
                                 .ingressChannel("aeron:udp")
                                 .ingressEndpoints(ingressEndpoints))) {

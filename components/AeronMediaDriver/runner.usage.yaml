@@ -1,4 +1,4 @@
-definition: A simple module to test aeron
+definition: run the aeron media driver
 family: service
 commands:
   e2e:

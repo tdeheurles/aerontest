@@ -4,6 +4,7 @@ import java.util.Set;
 
 public class Configuration {
     public static final String CLUSTER_NODE_ID = "cluster.node.id";
+    public static final String IP = "cluster.node.ip";
     public static final String ARCHIVE_CONTROL_REQUEST_PORT = "cluster.archive.control_request.port";
     public static final String CLIENT_FACING_PORT = "cluster.client_facing.port";
     public static final String MEMBER_FACING_PORT = "cluster.member_facing.port";
@@ -23,6 +24,7 @@ public class Configuration {
     public static void AssertAndDumpCluster() {
         AssertAndDump(Set.of(
                 CLUSTER_NODE_ID,
+                IP,
                 ARCHIVE_CONTROL_REQUEST_PORT,
                 CLIENT_FACING_PORT,
                 MEMBER_FACING_PORT,

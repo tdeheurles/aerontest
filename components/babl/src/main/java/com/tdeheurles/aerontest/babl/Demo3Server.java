@@ -15,30 +15,14 @@ public class Demo3Server {
     public static void main(String[] args) {
 
         final var config = PropertiesLoader.configure(Paths.get(args[0]));
-//        final var ingressEndpoints = args[1];
+        final var ingressEndpoints = args[1];
+        final var ip = args[2];
+        final var aeronUdpEndpoint = "aeron:udp?endpoint=" + ip + ":0";
 
-//        final var config = PropertiesLoader.configure(Paths.get(
-//                "components/babl/src/main/resources/demo2.config.properties"));
+        System.out.println("ingressEndpoints: " + ingressEndpoints);
+        System.out.println("ip:               " + ip);
+        System.out.println("aeronUdpEndpoint: " + aeronUdpEndpoint);
 
-//        var member_config = "0,";
-//        member_config += "localhost:8001,";
-//        member_config += "localhost:8002,";
-//        member_config += "localhost:8003,";
-//        member_config += "localhost:8004,";
-//        member_config += "localhost:8000|";
-//        member_config += "1,";
-//        member_config += "localhost:8101,";
-//        member_config += "localhost:8102,";
-//        member_config += "localhost:8103,";
-//        member_config += "localhost:8104,";
-//        member_config += "localhost:8100|";
-//        member_config += "2,";
-//        member_config += "localhost:8201,";
-//        member_config += "localhost:8202,";
-//        member_config += "localhost:8203,";
-//        member_config += "localhost:8204,";
-//        member_config += "localhost:8200|";
-        final var ingressEndpoints = "0=localhost:8001,1=localhost:8101,2=localhost:8201";
         final var sessions = new Long2ObjectHashMap<Session>();
         final var additionalWorkClusterToGui = new Demo3AdditionalWorkerClusterToGui(sessions);
 
@@ -52,7 +36,7 @@ public class Demo3Server {
                 final var aeronCluster = AeronCluster.connect(
                         new AeronCluster.Context()
                                 .egressListener(additionalWorkClusterToGui)
-                                .egressChannel("aeron:udp?endpoint=localhost:0")
+                                .egressChannel(aeronUdpEndpoint)
                                 .aeronDirectoryName(clusterMediaDriver.aeronDirectoryName())
                                 .ingressChannel("aeron:udp")
                                 .ingressEndpoints(ingressEndpoints))

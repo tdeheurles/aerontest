@@ -5,15 +5,12 @@ commands:
     help: stop, clean, build and start client
     files:
       - runner.gradle_build.sh
-      - runner.start.sh
   start:
     help: start client
-  exec_0:
-    help: run node 0 of the cluster
-  exec_1:
-    help: run node 1 of the cluster
-  exec_2:
-    help: run node 2 of the cluster
+  exec_node:
+    help: run one of the cluster nodes
+    files:
+      - runner.exec_common.sh
   docker_build_push:
     help: build and push service docker container
   exec_client:
