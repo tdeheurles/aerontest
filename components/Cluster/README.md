@@ -9,7 +9,7 @@ Build the code
 ./do --component="Cluster" --command="gradle_build"
 ```
 
-Create a docker network
+Create a docker network if not present
 ```shell
 docker network create \
   --subnet 10.0.0.0/16 \
@@ -19,9 +19,12 @@ docker network create \
   aeron
 ```
 
-## Demo0
+## Cluster.Demo0
 - ClusteredService
     - print a log of each event type
+
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo0Cluster.java)
 
 ### Run
 #### Start the cluster
@@ -46,13 +49,16 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 ```
 
 
-## Demo1
+## Cluster.Demo1
 - ClusteredService
     - log of each event type 
     - log message from EgressListener
 - EgressListener
     - print a log of each event type
     - send a message to ClusteredService
+
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo1Cluster.java)
 
 ### Run
 #### Start the cluster
@@ -80,12 +86,15 @@ On a 4th terminal, execute:
 ```shell
 ./do --host --component="Cluster" --command="exec_client" --demo=1
 ```
-## Demo2
+
+## Cluster.Demo2
 - Works with:
-    - Babl.Demo3
+    - [Babl.Demo3](../babl/README.md#Babl.Demo3)
 - ClusteredService
     - log of each event type
     - log message from EgressListener
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo2Cluster.java)
 ### Run
 On 3 different terminal, execute:
 ```shell
