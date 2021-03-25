@@ -3,5 +3,7 @@ family: service
 commands:
   build:
     help: build server and client
-  server:
+  server_v0:
+    help: start server
+  server_v1:
     help: start server

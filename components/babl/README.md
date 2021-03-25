@@ -6,6 +6,10 @@
 - Start the babl server 
 - log onSessionConnected, onSessionDisconnected and onSessionMessage.
 - onSessionMessage answer with a text message.
+```shell
+RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server_v0" --demo=0
+```
 
 ## Demo1
 - work in with:
@@ -14,6 +18,10 @@
 - log onSessionConnected, onSessionDisconnected and onSessionMessage.
 - onSessionMessage answer with a simple message.
 - protocol buffer message with UI
+```shell
+RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server_v0" --demo=1
+```
 
 ## Demo2
 - work in with:
@@ -23,6 +31,10 @@
 - onSessionMessage answer with a message.
 - protocol buffer message with UI
 - additional Work
+```shell
+RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server" --demo=2
+```
 
 ## Demo3
 - work in with:
@@ -33,12 +45,7 @@
 - transfer message from UI to Cluster
 - transfer message from Cluster to UI
 ```shell
-node_0=10.0.0.2
-node_1=10.0.0.3
-node_2=10.0.0.4
 node_ip=10.0.0.5
-RUNNER_DOCKER_ARGS="--network=aeron --shm-size=512mb -p 8081:8081" \
-./do --component="babl" --command="server" --id=3 \
-  --node_0="${node_0}" --node_1="${node_1}" --node_2="${node_2}" \
-  --node_ip="${node_ip}"
+RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server_v1" --demo=3 --node_ip="${node_ip}"
 ```

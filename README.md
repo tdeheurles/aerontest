@@ -2,14 +2,17 @@
 
 These are my notes around the journey into Aeron.   
 
-## Progressive Demos
-Each `component` is organised in demo levels (demo0, demo1, etc). Then, the demos from each component are composed together to create other demos.
-Intention is if you don't understand the code, you should be able to decrease the level of the demo to understand the `component` better and then go back to the higher level demo. 
+## Demos
+- [`UI` <--**WebSocket**--> `Babl` <--**Aeron**--> `ClusteredLogic`](./components/Documentation/ui-babl-aeroncluster.md)
+- [AeronCluster](./components/Cluster/README.md)
+- [BablWS](./components/babl/README.md)
+- [gRPC](./components/grpc/README.md)
+- [EKS cluster with AtyosRunner](./components/eks_cluster/README.md)
+- [Simple comparison: RealLogic's SBE, Google's Protocol Buffer and Google's JSON](./components/RealLogicSbe/README.md)
 
-### `UI` <--**WebSocket**--> `Babl` <--**Aeron**--> `ClusteredLogic`
-  - [UI.Demo2](components/ui/README.md#demo2)
-  - [Babl.Demo3](components/babl/README.md#demo3)
-  - [Cluster.Demo2](components/ui/README.md#demo2)
+## Progressive Demos
+Each `component` is organised in demo levels (demo0, demo1, etc). Then, the demos from each component are composed together to create higher level demos.
+Intention is to be able to decrease the level of the demo to understand the `component` better. 
 
 ## Elements
 ### Aeron

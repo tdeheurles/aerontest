@@ -1,16 +1,8 @@
 definition: A simple module to test aeron
 family: service
 commands:
-  e2e:
-    help: stop, clean, build and start client
-    files:
-      - runner.gradle_build.sh
-  start:
-    help: start client
-  exec_node:
+  exec_node_v0:
     help: run one of the cluster nodes
-    files:
-      - runner.exec_common.sh
   docker_build_push:
     help: build and push service docker container
   exec_client:
