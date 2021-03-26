@@ -38,7 +38,8 @@ It's used in Aeron, Sbe, Babl.
 
 ### Protocol Buffer
 Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.
-Got to [its website](https://developers.google.com/protocol-buffers) and read the documentation.
+Go to [its website](https://developers.google.com/protocol-buffers) and read the documentation.
 
 ### AtyosRunner
 The AtyosRunner is here to glue the code all together. You can easily skip its usage if you don't want it.
+You can see its [gitlab](https://gitlab.com/atyos/atyosrunner) for more information.
