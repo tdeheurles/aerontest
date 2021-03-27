@@ -36,6 +36,7 @@ RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
 ```
 
 ## UI.Demo3
+`/!\ WIP - This demo is not ready /!\`
 - works with:
   - [messages.Demo3](../messages/README.md#messagesdemo3)
   - [Babl.Demo4](../babl/README.md#babldemo4)

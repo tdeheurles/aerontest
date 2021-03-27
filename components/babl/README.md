@@ -81,6 +81,7 @@ RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:808
 ```
 
 ## Babl.Demo4
+`/!\ WIP - This demo is not ready /!\`
 - works with:
   - [Cluster.Demo2](../Cluster/README.md#clusterdemo3)
   - [Ui.Demo2](../ui/README.md#uidemo3react)

@@ -12,13 +12,13 @@ It's a composition of these 4 components:
 - [Babl.Demo3](../babl/README.md#babldemo3)
 - [UI.Demo2](../ui/README.md#uidemo2)
 
-0) Build the messages
-0) Build and run the cluster
-0) Build and run the babl server
-0) Build and run the UI server
+0) build the messages
+0) build and run the cluster
+0) build and run the babl server
+0) build and run the UI server
 
 ## Ui-Babl-Cluster.Demo1 - The TIC TAC TOE example
-`/!\ This demo is not ready /!\`
+`/!\ WIP - This demo is not ready /!\`
 
 It's a composition of these 4 components:
 - [messages.Demo3](../messages/README.md#messagesdemo3)
@@ -26,7 +26,7 @@ It's a composition of these 4 components:
 - [Babl.Demo4](../babl/README.md#babldemo4)
 - [UI.Demo3.react](../ui/README.md#uidemo3)
 
-0) Build the messages
-0) Build and run the cluster
-0) Build and run the babl server
-0) Build and run the UI server
+0) build the messages
+0) build and run the cluster
+0) build and run the babl server
+0) build and run the UI server
