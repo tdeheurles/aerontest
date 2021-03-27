@@ -11,23 +11,22 @@
 ## UI.Demo1
 - works with:
   - [Babl.Demo0](../babl/README.md#Babl.Demo0)
-- see https://golb.hplar.ch/2020/04/rxjs-websocket.html
-- Angular
-- RxJsWebSocket
-    - reconnection
+- changelog since UI.Demo0
+  - see https://golb.hplar.ch/2020/04/rxjs-websocket.html
+  - Use Angular
+  - RxJsWebSocket
+      - reconnection
 ### Code
 - [project root](./demo1)
 
 ## UI.Demo2
 - works with:
-  - [Babl.Demo0](../babl/README.md#Babl.Demo0)
-  - [Babl.Demo1](../babl/README.md#Babl.Demo1)
-  - [Babl.Demo2](../babl/README.md#Babl.Demo2)
-- see https://golb.hplar.ch/2020/04/rxjs-websocket.html
-- Angular
-- RxJsWebSocket
-    - reconnection
-- Protobuf
+  - [messages.Demo3](../messages/README.md#Messages.Demo2)
+  - [Babl.Demo1](../babl/README.md#Babl.Demo1) or [Babl.Demo2](../babl/README.md#Babl.Demo2) or [Babl.Demo3](../babl/README.md#Babl.Demo3)
+- changelog since UI.Demo1:
+  - RxJsWebSocket
+      - reconnection
+  - Protobuf
 ### Code
 - [project root](./demo2)
 ### Run
@@ -37,6 +36,9 @@ RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
 ```
 
 ## UI.Demo3
+- works with:
+  - [messages.Demo3](../messages/README.md#Messages.Demo3)
+  - [Babl.Demo4](../babl/README.md#Babl.Demo4)
 ### UI.Demo3.react
 ### Code
 - [project root](./demo3.react)

@@ -20,7 +20,7 @@ docker network create \
 ```
 
 ## Babl.Demo0
-- work in with:
+- work with:
     - [Ui.Demo1](../ui/README.md#UI.Demo1)
 - Start the babl server 
 - log onSessionConnected, onSessionDisconnected and onSessionMessage.
@@ -35,12 +35,10 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 ```
 
 ## Babl.Demo1
-- work in with:
+- work with:
   - [Ui.Demo2](../ui/README.md#UI.Demo2)
-- Start the babl server
-- log onSessionConnected, onSessionDisconnected and onSessionMessage.
-- onSessionMessage answer with a simple message.
-- protocol buffer message with UI
+- changelog since demo0:
+  - protocol buffer message with UI
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo1Server.java)
 ### Run
@@ -50,13 +48,10 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 ```
 
 ## Babl.Demo2
-- work in with:
+- work with:
   - [Ui.Demo2](../ui/README.md#UI.Demo2)
-- Start the babl server
-- log onSessionConnected, onSessionDisconnected and onSessionMessage.
-- onSessionMessage answer with a message.
-- protocol buffer message with UI
-- additional Work
+- changelog since demo0:
+  - Use babl Additional Work
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo2Server.java)
 ### Run
@@ -66,18 +61,38 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 ```
 
 ## Babl.Demo3
-- work in with:
+- work with:
   - [Cluster.Demo2](../Cluster/README.md#Cluster.Demo2)
   - [Ui.Demo2](../ui/README.md#UI.Demo2)
-- connect to AeronCluster
-- maintain session alive
-- transfer message from UI to Cluster
-- transfer message from Cluster to UI
+  - [messages.demo2](../messages/README.md#Messages.Demo2)
+- changelog since demo2:
+  - connect to AeronCluster
+  - maintain session alive
+  - transfer message from UI to Cluster
+  - transfer message from Cluster to UI
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo3Server.java)
 ### Run
 ```shell
+# You have to first run the Cluster.Demo2 
 node_ip=10.0.0.5
 RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:8081" \
 ./do --component="babl" --command="server_v1" --demo=3 --node_ip="${node_ip}"
+```
+
+## Babl.Demo4
+- work with:
+  - [Cluster.Demo2](../Cluster/README.md#Cluster.Demo3)
+  - [Ui.Demo2](../ui/README.md#UI.Demo3.react)
+  - [messages.demo2](../messages/README.md#Messages.Demo3)
+- changelog since demo3:
+  - TODO
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo4Server.java)
+### Run
+```shell
+# You have to first run the Cluster.Demo3
+node_ip=10.0.0.5
+RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server_v1" --demo=4 --node_ip="${node_ip}"
 ```

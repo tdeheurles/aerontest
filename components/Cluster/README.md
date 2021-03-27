@@ -50,19 +50,19 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 
 
 ## Cluster.Demo1
-- ClusteredService
-    - log of each event type 
-    - log message from EgressListener
-- EgressListener
-    - print a log of each event type
-    - send a message to ClusteredService
+- changelog since demo0:
+  - ClusteredService
+      - log message from EgressListener
+  - EgressListener
+      - print a log of each event type
+      - send a message to ClusteredService
 
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo1Cluster.java)
 
 ### Run
 #### Start the cluster
-On 3 different terminal, execute:
+On 3 different terminals, execute:
 ```shell
 node_ip=10.0.0.2
 RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
@@ -90,13 +90,14 @@ On a 4th terminal, execute:
 ## Cluster.Demo2
 - Works with:
     - [Babl.Demo3](../babl/README.md#Babl.Demo3)
-- ClusteredService
-    - log of each event type
-    - log message from EgressListener
+    - [messages.demo2](../messages/README.md#Messages.Demo2)
+- changelog since demo1:
+  - ClusteredService
+      - ping pong message from egressListener
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo2Cluster.java)
 ### Run
-On 3 different terminal, execute:
+On 3 different terminals, execute:
 ```shell
 node_ip=10.0.0.2
 RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
@@ -114,4 +115,34 @@ node_ip=10.0.0.4
 RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 ./do --component="Cluster" --command="exec_node_v0" \
      --demo=2 --node_id=2 --node_ip="${node_ip}"
+```
+
+## Cluster.Demo3
+- Works with:
+  - [Babl.Demo4](../babl/README.md#Babl.Demo4)
+  - [messages.demo3](../messages/README.md#Messages.Demo3)
+- changelog since demo2:
+  - ClusteredService
+    - TODO
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo3Cluster.java)
+### Run
+On 3 different terminals, execute:
+```shell
+node_ip=10.0.0.2
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=3 --node_id=0 --node_ip="${node_ip}"
+```
+```shell
+node_ip=10.0.0.3
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=3 --node_id=1 --node_ip="${node_ip}"
+```
+```shell
+node_ip=10.0.0.4
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=3 --node_id=2 --node_ip="${node_ip}"
 ```
