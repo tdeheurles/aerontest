@@ -89,8 +89,8 @@ On a 4th terminal, execute:
 
 ## Cluster.Demo2
 - Works with:
-    - [Babl.Demo3](../babl/README.md#Babl.Demo3)
-    - [messages.demo2](../messages/README.md#Messages.Demo2)
+    - [Babl.Demo3](../babl/README.md#babldemo3)
+    - [messages.demo2](../messages/README.md#messagesdemo2)
 - changelog since demo1:
   - ClusteredService
       - ping pong message from egressListener
@@ -119,8 +119,8 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 
 ## Cluster.Demo3
 - Works with:
-  - [Babl.Demo4](../babl/README.md#Babl.Demo4)
-  - [messages.demo3](../messages/README.md#Messages.Demo3)
+  - [Babl.Demo4](../babl/README.md#babldemo4)
+  - [messages.demo3](../messages/README.md#messagesdemo3)
 - changelog since demo2:
   - ClusteredService
     - TODO

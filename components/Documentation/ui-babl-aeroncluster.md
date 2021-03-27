@@ -7,10 +7,10 @@ Babl will transmit the message to the AeronCluster. This one will directly send 
 This demo focuses on simplicity and set everything in place from a devops point of for incoming demos. 
 
 It's a composition of these 4 components:
-- [messages.Demo2](../messages/README.md#Messages.Demo2)
-- [Cluster.Demo2](../Cluster/README.md#Cluster.Demo2)
-- [Babl.Demo3](../babl/README.md#Babl.Demo3)
-- [UI.Demo2](../ui/README.md#UI.Demo2)
+- [messages.Demo2](../messages/README.md#messagesdemo2)
+- [Cluster.Demo2](../Cluster/README.md#clusterdemo2)
+- [Babl.Demo3](../babl/README.md#babldemo3)
+- [UI.Demo2](../ui/README.md#uidemo2)
 
 0) Build the messages
 0) Build and run the cluster
@@ -21,10 +21,10 @@ It's a composition of these 4 components:
 `/!\ This demo is not ready /!\`
 
 It's a composition of these 4 components:
-- [messages.Demo3](../messages/README.md#Messages.Demo3)
-- [Cluster.Demo3](../Cluster/README.md#Cluster.Demo3)
-- [Babl.Demo4](../babl/README.md#Babl.Demo4)
-- [UI.Demo3.react](../ui/README.md#UI.Demo3)
+- [messages.Demo3](../messages/README.md#messagesdemo3)
+- [Cluster.Demo3](../Cluster/README.md#clusterdemo3)
+- [Babl.Demo4](../babl/README.md#babldemo4)
+- [UI.Demo3.react](../ui/README.md#uidemo3)
 
 0) Build the messages
 0) Build and run the cluster

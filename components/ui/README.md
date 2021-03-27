@@ -2,7 +2,7 @@
 
 ## UI.Demo0
 - Works with:
-    - [Babl.Demo0](../babl/README.md#Babl.Demo0)
+    - [Babl.Demo0](../babl/README.md#babldemo0)
 - Connect to server and send one simple message
 - Out are shown in the console
 ### Code
@@ -10,7 +10,7 @@
 
 ## UI.Demo1
 - works with:
-  - [Babl.Demo0](../babl/README.md#Babl.Demo0)
+  - [Babl.Demo0](../babl/README.md#babldemo0)
 - changelog since UI.Demo0
   - see https://golb.hplar.ch/2020/04/rxjs-websocket.html
   - Use Angular
@@ -21,8 +21,8 @@
 
 ## UI.Demo2
 - works with:
-  - [messages.Demo3](../messages/README.md#Messages.Demo2)
-  - [Babl.Demo1](../babl/README.md#Babl.Demo1) or [Babl.Demo2](../babl/README.md#Babl.Demo2) or [Babl.Demo3](../babl/README.md#Babl.Demo3)
+  - [messages.Demo3](../messages/README.md#messagesdemo2)
+  - [Babl.Demo1](../babl/README.md#babldemo1) or [Babl.Demo2](../babl/README.md#babldemo2) or [Babl.Demo3](../babl/README.md#babldemo3)
 - changelog since UI.Demo1:
   - RxJsWebSocket
       - reconnection
@@ -37,8 +37,8 @@ RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
 
 ## UI.Demo3
 - works with:
-  - [messages.Demo3](../messages/README.md#Messages.Demo3)
-  - [Babl.Demo4](../babl/README.md#Babl.Demo4)
+  - [messages.Demo3](../messages/README.md#messagesdemo3)
+  - [Babl.Demo4](../babl/README.md#babldemo4)
 ### UI.Demo3.react
 ### Code
 - [project root](./demo3.react)

@@ -21,7 +21,7 @@ docker network create \
 
 ## Babl.Demo0
 - work with:
-    - [Ui.Demo1](../ui/README.md#UI.Demo1)
+    - [Ui.Demo1](../ui/README.md#uidemo1)
 - Start the babl server 
 - log onSessionConnected, onSessionDisconnected and onSessionMessage.
 - onSessionMessage answer with a text message.
@@ -36,7 +36,7 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 
 ## Babl.Demo1
 - work with:
-  - [Ui.Demo2](../ui/README.md#UI.Demo2)
+  - [Ui.Demo2](../ui/README.md#uidemo2)
 - changelog since demo0:
   - protocol buffer message with UI
 ### Code
@@ -49,7 +49,7 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 
 ## Babl.Demo2
 - work with:
-  - [Ui.Demo2](../ui/README.md#UI.Demo2)
+  - [Ui.Demo2](../ui/README.md#uidemo2)
 - changelog since demo0:
   - Use babl Additional Work
 ### Code
@@ -62,9 +62,9 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 
 ## Babl.Demo3
 - work with:
-  - [Cluster.Demo2](../Cluster/README.md#Cluster.Demo2)
-  - [Ui.Demo2](../ui/README.md#UI.Demo2)
-  - [messages.demo2](../messages/README.md#Messages.Demo2)
+  - [Cluster.Demo2](../Cluster/README.md#clusterdemo2)
+  - [Ui.Demo2](../ui/README.md#uidemo2)
+  - [messages.demo2](../messages/README.md#messagesdemo2)
 - changelog since demo2:
   - connect to AeronCluster
   - maintain session alive
@@ -82,9 +82,9 @@ RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:808
 
 ## Babl.Demo4
 - work with:
-  - [Cluster.Demo2](../Cluster/README.md#Cluster.Demo3)
-  - [Ui.Demo2](../ui/README.md#UI.Demo3.react)
-  - [messages.demo2](../messages/README.md#Messages.Demo3)
+  - [Cluster.Demo2](../Cluster/README.md#clusterdemo3)
+  - [Ui.Demo2](../ui/README.md#uidemo3react)
+  - [messages.demo2](../messages/README.md#messagesdemo3)
 - changelog since demo3:
   - TODO
 ### Code

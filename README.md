@@ -9,6 +9,7 @@ These are my notes around the journey into Aeron.
 - [gRPC](./components/grpc/README.md)
 - [EKS cluster with AtyosRunner](./components/eks_cluster/README.md)
 - [Simple comparison: RealLogic's SBE, Google's Protocol Buffer and Google's JSON](./components/RealLogicSbe/README.md)
+- [Protocol Buffer](./components/messages/README.md)
 
 ## Progressive Demos
 Each `component` is organised in demo levels (demo0, demo1, etc). Then, the demos from each component are composed together to create higher level demos.
