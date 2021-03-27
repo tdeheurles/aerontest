@@ -1,10 +1,10 @@
 # UI - Demo
 
 ## UI.Demo0
-- Works with:
+- works with:
     - [Babl.Demo0](../babl/README.md#babldemo0)
-- Connect to server and send one simple message
-- Out are shown in the console
+- connect to server and send one simple message
+- out are shown in the console
 ### Code
 - [project root](./demo0)
 
@@ -13,7 +13,7 @@
   - [Babl.Demo0](../babl/README.md#babldemo0)
 - changelog since [UI.Demo0](#uidemo0)
   - see https://golb.hplar.ch/2020/04/rxjs-websocket.html
-  - Use Angular
+  - use Angular
   - RxJsWebSocket
       - reconnection
 ### Code
@@ -26,7 +26,7 @@
 - changelog since [UI.Demo1](#uidemo1)
   - RxJsWebSocket
       - reconnection
-  - Protobuf
+  - ProtocolBuffer
 ### Code
 - [project root](./demo2)
 ### Run
