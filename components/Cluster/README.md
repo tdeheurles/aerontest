@@ -50,7 +50,7 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 
 
 ## Cluster.Demo1
-- changelog since demo0:
+- changelog since [Cluster.Demo0](#clusterdemo0):
   - ClusteredService
       - log message from EgressListener
   - EgressListener
@@ -91,7 +91,7 @@ On a 4th terminal, execute:
 - Works with:
     - [Babl.Demo3](../babl/README.md#babldemo3)
     - [messages.demo2](../messages/README.md#messagesdemo2)
-- changelog since demo1:
+- changelog since [Cluster.Demo1](#clusterdemo1):
   - ClusteredService
       - ping pong message from egressListener
 ### Code
@@ -121,7 +121,7 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 - Works with:
   - [Babl.Demo4](../babl/README.md#babldemo4)
   - [messages.demo3](../messages/README.md#messagesdemo3)
-- changelog since demo2:
+- changelog since [Cluster.Demo2](#clusterdemo2):
   - ClusteredService
     - TODO
 ### Code

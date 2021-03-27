@@ -37,7 +37,7 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 ## Babl.Demo1
 - work with:
   - [Ui.Demo2](../ui/README.md#uidemo2)
-- changelog since demo0:
+- changelog since [Babl.Demo0](#babldemo0):
   - protocol buffer message with UI
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo1Server.java)
@@ -50,7 +50,7 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
 ## Babl.Demo2
 - work with:
   - [Ui.Demo2](../ui/README.md#uidemo2)
-- changelog since demo0:
+- changelog since [Babl.Demo1](#babldemo1):
   - Use babl Additional Work
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo2Server.java)
@@ -65,7 +65,7 @@ RUNNER_DOCKER_ARGS="--shm-size=512mb -p 8081:8081" \
   - [Cluster.Demo2](../Cluster/README.md#clusterdemo2)
   - [Ui.Demo2](../ui/README.md#uidemo2)
   - [messages.demo2](../messages/README.md#messagesdemo2)
-- changelog since demo2:
+- changelog since [Babl.Demo2](#babldemo2):
   - connect to AeronCluster
   - maintain session alive
   - transfer message from UI to Cluster
@@ -85,7 +85,7 @@ RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:808
   - [Cluster.Demo2](../Cluster/README.md#clusterdemo3)
   - [Ui.Demo2](../ui/README.md#uidemo3react)
   - [messages.demo2](../messages/README.md#messagesdemo3)
-- changelog since demo3:
+- changelog since [Babl.Demo3](#babldemo3):
   - TODO
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo4Server.java)
