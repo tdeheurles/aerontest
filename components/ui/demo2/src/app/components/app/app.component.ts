@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {Backend} from "../../services/backend";
+import {Backend} from '../../services/backend';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html'
+  templateUrl: './app.component.html'
 })
-export class App {
+export class AppComponent {
   readonly title = 'Demo2';
 
   constructor(private backend: Backend) {
@@ -16,9 +16,9 @@ export class App {
     console.log(`${this.constructor.name} - ngOnInit`);
   }
 
-  sendMessage() {
-    const message = "heyheyhey";
-    console.log(`${this.constructor.name} - sendMessage: ${message}`)
+  sendMessage(): void {
+    const message = 'heyheyhey';
+    console.log(`${this.constructor.name} - sendMessage: ${message}`);
     this.backend.sendMessage(message);
   }
 }

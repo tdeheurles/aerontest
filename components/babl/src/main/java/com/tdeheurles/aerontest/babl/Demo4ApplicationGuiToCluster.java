@@ -53,12 +53,6 @@ public class Demo4ApplicationGuiToCluster implements Application {
                 " - offset(" + offset + ")\n" +
                 " - length(" + length + ")");
 
-            // Print received message
-            final var messageBytes = msg.getStringWithoutLengthUtf8(offset, length).getBytes();
-            final var demo2Message = Demo2Message.parseFrom(messageBytes);
-            ConsoleLog.main_3("Message.content: " + demo2Message.getContent());
-
-            // Send message to cluster
             idleStrategy.reset();
             ConsoleLog.warning_0("Sending message ...");
             while (aeronCluster.offer(msg, offset, length) < 0) {

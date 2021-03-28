@@ -36,12 +36,12 @@ RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
 ```
 
 ## UI.Demo3
-`/!\ WIP - This demo is not ready /!\`
 - works with:
   - [messages.Demo3](../messages/README.md#messagesdemo3)
   - [Babl.Demo4](../babl/README.md#babldemo4)
 - changelog since [UI.Demo2](#uidemo2)
   - add [react Tic Tac Toe tutorial](https://reactjs.org/tutorial/tutorial.html) game logic
+  - add code to handle messages from [messages.demo3](../messages/src/demo3.proto) 
 ### UI.Demo3.react
 ### Code
 - [project root](./demo3.react)

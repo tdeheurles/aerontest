@@ -47,4 +47,10 @@ import * as protobuf from 'protobufjs';
 const root = protobuf.Root.fromJSON(require('${bundle_file}'));
 export default root;
 EOF
+
+  # Avoid problem with react app rewire
+  if [[ -e "${this_directory}/demo3.react/src/generated" ]]; then
+    rm --recursive "${this_directory}/demo3.react/src/generated"
+  fi
+  cp -r "${generated}" "${this_directory}/demo3.react/src/generated"
 )

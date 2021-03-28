@@ -19,8 +19,6 @@ import java.util.HashMap;
 public class Demo4AdditionalWorkerClusterToGui implements Agent, EgressListener {
     private final Long2ObjectHashMap<Session> sessions;
     private AeronCluster aeronCluster;
-    private final Demo2Message.Builder demo2MessageBuilder = Demo2Message.newBuilder();
-    private final MutableDirectBuffer buffer = new ExpandableDirectByteBuffer(512);
 
     public Demo4AdditionalWorkerClusterToGui(Long2ObjectHashMap<Session> sessions) {
         this.sessions = sessions;
@@ -70,17 +68,10 @@ public class Demo4AdditionalWorkerClusterToGui implements Agent, EgressListener 
                 "timestamp(" + timestamp + ")");
 
         try {
-            // Print message received from cluster
-//            final var messageBytes = buffer.getStringWithoutLengthUtf8(offset, length).getBytes();
-//            final var demo2Message = Demo2Message.parseFrom(messageBytes);
-
-            // Send message to UI
             for (HashMap.Entry<Long, Session> entry : sessions.entrySet()) {
                 var session = entry.getValue();
-
                 int sendResult;
                 do {
-//                    ConsoleLog.main_3("Transferring message from cluster to ui: " + demo2Message.getContent());
                     sendResult = session.send(ContentType.BINARY, buffer, offset, length);
                 }
                 while (sendResult != SendResult.OK);

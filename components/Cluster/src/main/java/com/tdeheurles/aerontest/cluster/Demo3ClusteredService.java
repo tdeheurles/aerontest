@@ -1,6 +1,7 @@
 package com.tdeheurles.aerontest.cluster;
 
-import com.tdeheurles.aerontest.protobuf.Demo2Message;
+import com.tdeheurles.aerontest.protobuf.Demo3FullState;
+import com.tdeheurles.aerontest.protobuf.Demo3Wrapper;
 import io.aeron.ExclusivePublication;
 import io.aeron.Image;
 import io.aeron.cluster.codecs.CloseReason;
@@ -13,14 +14,17 @@ import org.agrona.ExpandableDirectByteBuffer;
 import org.agrona.MutableDirectBuffer;
 
 public class Demo3ClusteredService implements ClusteredService {
-    private final Demo2Message.Builder demoClassBuilder = Demo2Message.newBuilder();
+    private final Demo3Wrapper.Builder wrapperBuilder = Demo3Wrapper.newBuilder();
+    private final Demo3FullState.Builder fullStateBuilder = Demo3FullState.newBuilder();
     private final MutableDirectBuffer buffer = new ExpandableDirectByteBuffer(512);
     private Cluster cluster;
+    private Demo3GameLogic gameLogic;
 
     @Override
     public void onStart(Cluster cluster, Image snapshotImage) {
         ConsoleLog.main_2("onStart");
         this.cluster = cluster;
+        this.gameLogic = new Demo3GameLogic();
     }
 
     @Override
@@ -33,31 +37,54 @@ public class Demo3ClusteredService implements ClusteredService {
     public void onSessionMessage(ClientSession session, long timestamp, DirectBuffer buffer, int offset, int length, Header header) {
         ConsoleLog.main_2("onSessionMessage");
         ConsoleLog.main_3("session(" + session + ") - timestamp(" + timestamp + ") - offset(" + offset + ")");
-
-        System.out.println("role: " + this.cluster.role().toString());
+        ConsoleLog.main_3("role: " + this.cluster.role().toString());
 
         try {
-            // Print message received from cluster
             final var messageBytes = buffer.getStringWithoutLengthUtf8(offset, length).getBytes();
-            final var demo2Message = Demo2Message.parseFrom(messageBytes);
-            ConsoleLog.main_3("Received.Message.Content: " + demo2Message.getContent());
-
-            // Send an answer to EgressListener
-            demoClassBuilder.clear();
-            final var builder = demoClassBuilder.setContent("answer built in the cluster").build();
-            final int sendOffset = 0;
-            final int sendLength = builder.getSerializedSize();
-            this.buffer.putBytes(sendOffset, builder.toByteArray());
-            ConsoleLog.main_3("Sending.Message: " + builder.toString());
-            while (session.offer(this.buffer, sendOffset, sendLength) < 0) {
-                ConsoleLog.main_3("Message not sent ...");
-                this.cluster.idleStrategy().idle();
+            final var demo3Wrapper = Demo3Wrapper.parseFrom(messageBytes);
+            switch (demo3Wrapper.getMessageCase()) {
+                case FULLSTATEREQUEST -> {
+                    ConsoleLog.main_3("fullStateRequest message received");
+                    transmitFullStateOfTheGame(session);
+                }
+                case MOVE -> {
+                    ConsoleLog.main_3("move message received");
+                    final var move = demo3Wrapper.getMove();
+                    gameLogic.calculateMove(move.getPosition());
+                    transmitFullStateOfTheGame(session);
+                }
+                case RESET -> {
+                    ConsoleLog.main_3("reset message received");
+                    gameLogic.resetSquares();
+                    transmitFullStateOfTheGame(session);
+                }
             }
         }
         catch (Exception e) {
             ConsoleLog.error_0("----------------------------------------------------------");
             e.printStackTrace();
             ConsoleLog.error_0("----------------------------------------------------------");
+        }
+    }
+
+    private void transmitFullStateOfTheGame(ClientSession session) {
+        fullStateBuilder.clear();
+        final var fullState = fullStateBuilder
+                .addAllSquares(gameLogic.getFullState())
+                .setXIsNext(gameLogic.getXIsNext())
+                .setWinner(gameLogic.getWinner())
+                .build();
+
+        wrapperBuilder.clear();
+        final var wrapper = wrapperBuilder.setFullState(fullState).build();
+
+        final int sendOffset = 0;
+        final int sendLength = wrapper.getSerializedSize();
+        this.buffer.putBytes(sendOffset, wrapper.toByteArray());
+        ConsoleLog.main_3("Sending.Message: " + wrapper.toString());
+        while (session.offer(this.buffer, sendOffset, sendLength) < 0) {
+            ConsoleLog.main_3("Message not sent ...");
+            this.cluster.idleStrategy().idle();
         }
     }
 

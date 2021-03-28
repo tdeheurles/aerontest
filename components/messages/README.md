@@ -1,13 +1,18 @@
 # Messages
 
+## Messages.Demo2
+### Code
+- [src.demo2](./src/demo2.proto)
 ## Build
 ```shell
-./do --component="messages" --command="generate"
+./do --component="messages" --command="generate" --demo=2
 ```
-
-## Messages.Demo2
-- [code](./src/demo2.proto)
 
 ## Messages.Demo3
 `/!\ WIP - This demo is not ready /!\`
-- [code](./src/demo3.proto)
+### Code
+- [src.demo2](./src/demo3.proto)
+## Build
+```shell
+./do --component="messages" --command="generate" --demo=3
+```

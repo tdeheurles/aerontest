@@ -3,6 +3,23 @@ syntax = 'proto3';
 option java_multiple_files = true;
 package com.tdeheurles.aerontest.protobuf;
 
-message Demo3Message {
-  string content = 1;
+message Demo3FullStateRequest {
+}
+message Demo3FullState {
+  repeated string squares = 1;
+  bool xIsNext = 2;
+  string winner = 3;
+}
+message Demo3Move {
+  int32 position = 1;
+}
+message Demo3Reset {
+}
+message Demo3Wrapper {
+  oneof message {
+    Demo3FullStateRequest fullStateRequest = 1;
+    Demo3FullState fullState = 2;
+    Demo3Move move = 3;
+    Demo3Reset reset = 4;
+  }
 }
