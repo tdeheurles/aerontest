@@ -118,7 +118,6 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 ```
 
 ## Cluster.Demo3
-`/!\ WIP - This demo is not ready /!\`
 - Works with:
   - [Babl.Demo4](../babl/README.md#babldemo4)
   - [messages.demo3](../messages/README.md#messagesdemo3)
