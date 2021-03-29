@@ -123,7 +123,8 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
   - [messages.demo3](../messages/README.md#messagesdemo3)
 - changelog since [Cluster.Demo2](#clusterdemo2):
   - ClusteredService
-    - TODO
+    - switch between different messages
+    - use the Tic Tac Toe game logic
 ### Code
 - [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo3Cluster.java)
 ### Run
