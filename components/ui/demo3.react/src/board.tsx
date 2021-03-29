@@ -26,25 +26,25 @@ export const Board =()=>{
                 const wrapperAsUint8Array = new Uint8Array(wrapper as ArrayBuffer);
                 const wrapperInstance = com.tdeheurles.aerontest.protobuf.Demo3Wrapper.decode(wrapperAsUint8Array);
                 if (wrapperInstance.fullState) {
-                    console.log('---- fullStateMessage')
-                    const squares = wrapperInstance.fullState.squares;
-                    if (squares) {
-                        setSquares(squares);
-                        console.log('squares set: ' + squares);
+                    console.log('---- fullStateMessage');
+                    const newSquares = wrapperInstance.fullState.squares;
+                    if (newSquares) {
+                        setSquares(newSquares);
+                        console.log('squares set: ' + newSquares);
                     }
 
-                    const winner = wrapperInstance.fullState.winner;
-                    console.log('winner: ' + winner)
-                    const xIsNext = wrapperInstance.fullState.xIsNext;
-                    if (xIsNext) {
-                        setXIsNext(xIsNext)
-                        console.log('xIsNext: ' + xIsNext)
+                    const newWinner = wrapperInstance.fullState.winner;
+                    console.log('winner: ' + newWinner);
+                    const newXIsNext = wrapperInstance.fullState.xIsNext;
+                    if (newXIsNext) {
+                        setXIsNext(newXIsNext)
+                        console.log('xIsNext: ' + newXIsNext);
                     }
 
-                    if (winner) {
-                        setStatus('Winner: ' + winner);
+                    if (newWinner) {
+                        setStatus('Winner: ' + newWinner);
                     } else {
-                        setStatus('Next player: ' + (xIsNext ? 'X' : 'O'));
+                        setStatus('Next player: ' + (newXIsNext ? 'X' : 'O'));
                     }
                 }
                 else if (wrapperInstance.fullStateRequest) {
@@ -136,7 +136,7 @@ export const Board =()=>{
         [sendMove, squares]);
 
     return <>
-        <div className="status">{state}</div>
+        <h1 className="status">{state}</h1>
         <div className="board-row">
             {renderSquare(0)}
             {renderSquare(1)}
@@ -153,9 +153,8 @@ export const Board =()=>{
             {renderSquare(8)}
         </div>
         <button
-            className="reset"
             onClick={()=>sendReset()}>
-            reset
+            New Game
         </button>
     </>
 }

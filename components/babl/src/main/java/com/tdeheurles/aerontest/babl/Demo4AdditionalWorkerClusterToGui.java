@@ -65,7 +65,9 @@ public class Demo4AdditionalWorkerClusterToGui implements Agent, EgressListener 
         ConsoleLog.main_2("onMessage");
         ConsoleLog.main_3(
                 "clusterSessionId(" + clusterSessionId + ") - " +
-                "timestamp(" + timestamp + ")");
+                "timestamp(" + timestamp + ") - " +
+                "offset(" + offset + ") - " +
+                "length(" + length + ")");
 
         try {
             for (HashMap.Entry<Long, Session> entry : sessions.entrySet()) {

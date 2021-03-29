@@ -48,6 +48,10 @@ public class Demo3GameLogic {
             ConsoleLog.main_3("Game is over, winner was " + winner + ", no move are available");
             return;
         }
+        if (!squares[move].equals("")) {
+            ConsoleLog.main_3("Move have already be executed by " + squares[move]);
+            return;
+        }
         squares[move] = xOrO();
         winner = calculateWinner(squares);
         xIsNext = !xIsNext;

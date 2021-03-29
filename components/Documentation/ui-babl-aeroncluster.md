@@ -18,13 +18,11 @@ It's a composition of these 4 components:
 0) build and run the UI server
 
 ## Ui-Babl-Cluster.Demo1 - The TIC TAC TOE example
-`/!\ WIP - This demo is not ready /!\`
-
 It's a composition of these 4 components:
 - [messages.Demo3](../messages/README.md#messagesdemo3)
 - [Cluster.Demo3](../Cluster/README.md#clusterdemo3)
 - [Babl.Demo4](../babl/README.md#babldemo4)
-- [UI.Demo3.react](../ui/README.md#uidemo3)
+- [UI.Demo3](../ui/README.md#uidemo3)
 
 0) build the messages
 0) build and run the cluster

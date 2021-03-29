@@ -43,9 +43,30 @@ RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
   - add [react Tic Tac Toe tutorial](https://reactjs.org/tutorial/tutorial.html) game logic
   - add code to handle messages from [messages.demo3](../messages/src/demo3.proto) 
 ### UI.Demo3.react
-### Code
+#### Code
+- [project root](./demo3.angular)
+#### Run
+```shell
+(
+cd components/ui/demo3.angular 
+npm install
+)
+```
+```shell
+RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
+./do --component="ui" --command="start" --id=3.angular
+```
+### UI.Demo3.react
+`/!\ Issue with protocol buffer strict mode /!\`
+#### Code
 - [project root](./demo3.react)
-### Run
+#### Run
+```shell
+(
+cd components/ui/demo3.react 
+npm install
+)
+```
 ```shell
 RUNNER_DOCKER_ARGS="--network=aeron -p 3000:3000" \
 ./do --component="ui" --command="start" --id=3.react

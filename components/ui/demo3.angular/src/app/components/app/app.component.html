@@ -1,0 +1,24 @@
+<div [className]="'game'">
+  <div [className]="'game-board'">
+    <h1 [className]="'status'">{{backend.status}}</h1>
+    <div [className]="'board-row'">
+      <app-square [position]=0></app-square>
+      <app-square [position]=1></app-square>
+      <app-square [position]=2></app-square>
+    </div>
+    <div [className]="'board-row'">
+      <app-square [position]=3></app-square>
+      <app-square [position]=4></app-square>
+      <app-square [position]=5></app-square>
+    </div>
+    <div [className]="'board-row'">
+      <app-square [position]=6></app-square>
+      <app-square [position]=7></app-square>
+      <app-square [position]=8></app-square>
+    </div>
+    <button
+      (click)="backend.sendReset()">
+      New Game
+    </button>
+  </div>
+</div>

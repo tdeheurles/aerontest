@@ -9,7 +9,6 @@
 ```
 
 ## Messages.Demo3
-`/!\ WIP - This demo is not ready /!\`
 ### Code
 - [src.demo2](./src/demo3.proto)
 ## Build

@@ -36,7 +36,7 @@ public class Demo3ClusteredService implements ClusteredService {
     @Override
     public void onSessionMessage(ClientSession session, long timestamp, DirectBuffer buffer, int offset, int length, Header header) {
         ConsoleLog.main_2("onSessionMessage");
-        ConsoleLog.main_3("session(" + session + ") - timestamp(" + timestamp + ") - offset(" + offset + ")");
+        ConsoleLog.main_3("session(" + session + ") - timestamp(" + timestamp + ") - offset(" + offset + ") - length(" + length + ")");
         ConsoleLog.main_3("role: " + this.cluster.role().toString());
 
         try {
@@ -81,7 +81,7 @@ public class Demo3ClusteredService implements ClusteredService {
         final int sendOffset = 0;
         final int sendLength = wrapper.getSerializedSize();
         this.buffer.putBytes(sendOffset, wrapper.toByteArray());
-        ConsoleLog.main_3("Sending.Message: " + wrapper.toString());
+        ConsoleLog.main_3("Sending.Message: " + wrapper.toString() + " of length(" + sendLength + ")");
         while (session.offer(this.buffer, sendOffset, sendLength) < 0) {
             ConsoleLog.main_3("Message not sent ...");
             this.cluster.idleStrategy().idle();
