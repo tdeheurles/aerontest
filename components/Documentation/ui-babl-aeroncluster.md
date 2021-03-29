@@ -18,6 +18,8 @@ It's a composition of these 4 components:
 0) build and run the UI server
 
 ## Ui-Babl-Cluster.Demo1 - The TIC TAC TOE example
+The Tic Tac Toe example will demo a minimum state handled by the server. 
+
 It's a composition of these 4 components:
 - [messages.Demo3](../messages/README.md#messagesdemo3)
 - [Cluster.Demo3](../Cluster/README.md#clusterdemo3)
