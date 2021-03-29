@@ -4,7 +4,7 @@ These are my notes around the journey into Aeron.
 
 ## Demos
 - [`UI` <--**WebSocket**--> `Babl` <--**Aeron**--> `ClusteredLogic`](./components/Documentation/ui-babl-aeroncluster.md)
-    - [`ui-babl-cluster.Demo0 - ping pong`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo0---the-pingpong-example)
+    - [`ui-babl-cluster.Demo0 - ping pong`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo0---pingpong)
     - [`ui-babl-cluster.Demo1 - tic tac toe`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo1---tic-tac-toe)
 - [AeronCluster](./components/Cluster/README.md)
 - [BablWS](./components/babl/README.md)

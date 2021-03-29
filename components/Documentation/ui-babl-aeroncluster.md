@@ -1,6 +1,6 @@
 # Ui-Babl-Cluster
 
-## Ui-Babl-Cluster.Demo0 - The Ping/Pong example
+## Ui-Babl-Cluster.Demo0 - Ping/Pong
 The ping pong example will send a simple message from the UI.
 Babl will transmit the message to the AeronCluster. This one will directly send the message back.
 
@@ -17,7 +17,7 @@ It's a composition of these 4 components:
 0) build and run the babl server
 0) build and run the UI server
 
-## Ui-Babl-Cluster.Demo1 - The TIC TAC TOE example
+## Ui-Babl-Cluster.Demo1 - TIC TAC TOE
 The Tic Tac Toe example will demo a minimum state handled by the server. 
 
 It's a composition of these 4 components:
