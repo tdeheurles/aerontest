@@ -9,3 +9,4 @@ components/Cluster/cluster_data
 
 # ATYOS RUNNER
 do.secret.env
+do.kubeconfig
