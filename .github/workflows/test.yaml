@@ -12,7 +12,8 @@ jobs:
 
       - name: build, tag and push
         run: |
-          set -eu
+          #!/usr/bin/env bash
+          set -euo pipefail
           cd components/docker
 
           BUILD_NUMBER:${GITHUB_SHA:0:8} \
