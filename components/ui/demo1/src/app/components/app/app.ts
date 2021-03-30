@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Backend} from "../../services/backend";
+import {Backend} from '../../services/backend';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +17,6 @@ export class App {
   }
 
   sendMessage() {
-    this.backend.sendMessage("hey");
+    this.backend.sendMessage('hey');
   }
 }

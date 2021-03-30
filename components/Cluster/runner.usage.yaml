@@ -1,4 +1,4 @@
-definition: A simple module to test aeron
+definition: Different demos for AeronCluster
 family: service
 commands:
   exec_node_v0:

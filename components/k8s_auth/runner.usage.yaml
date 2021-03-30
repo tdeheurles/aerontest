@@ -1,0 +1,8 @@
+definition: authenticate with kubernetes
+family: infrastructure
+commands:
+  create_kubeconfig:
+    help: create or update do.kubeconfig
+
+  use_context:
+    help: define the cluster and user to use

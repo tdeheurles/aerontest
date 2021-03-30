@@ -5,7 +5,7 @@ kind: ClusterConfig
 metadata:
   name: dev
   region: <% aws_region %>
-  version: "1.18"
+  version: "1.19"
   tags:
     role: devops
 
@@ -15,9 +15,9 @@ managedNodeGroups:
         "c5.large",
         "t3.large"
     ]
-    minSize: 4
-    desiredCapacity: 4
-    maxSize: 4
+    minSize: 1
+    desiredCapacity: 1
+    maxSize: 1
     spot: true
     iam:
       withAddonPolicies:

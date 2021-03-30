@@ -1,4 +1,4 @@
-definition: A simple module to test aeron
+definition: Benchmark for SBE, protobuf and google JSON
 family: service
 commands:
   generateProtoc:

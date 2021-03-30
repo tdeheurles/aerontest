@@ -1,0 +1,5 @@
+definition: GithubAction requirements
+family: cicd
+commands:
+  aws_apply:
+    help: apply the requirement to AWS

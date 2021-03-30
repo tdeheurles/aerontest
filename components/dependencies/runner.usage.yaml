@@ -1,6 +1,8 @@
 definition: install dependencies for the project
 family: development
 commands:
+  get_eksctl:
+    help: install eksctl
   get_jdk:
     help: install java development kit
   get_jre:

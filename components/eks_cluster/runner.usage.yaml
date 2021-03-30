@@ -1,39 +1,44 @@
 definition: The kubernetes cluster where run the laravel servers
 family: infrastructure
 commands:
+  add_log:
+    help: add cloudwatch logging
+
   add_node_group:
-    help: "     add a node group to the cluster (from configuration file)"
+    help: add a node group to the cluster (from configuration file)
     files:
       - eksctl/runner.dev.yaml
 
   add_user:
-    help: "     add an aws user into as a kubernetes user"
-    files:
-      - ./runner.use_context.sh
+    help: add an aws user into as a kubernetes user
+
+  aws_apply:
+    help: apply the aws cloudformation stack
 
   cluster_create:
-    help: "     create a cluster from scratch"
+    help: create a cluster from scratch
     files:
       - eksctl/runner.dev.yaml
 
   cluster_delete:
-    help: "     delete all environment of a cluster"
+    help: delete all environment of a cluster
 
   cluster_ls:
-    help: "     print a list of all cluster"
+    help: print a list of all cluster
 
-  kubeconfig:
-    help: create or update do.kubeconfig
+  create_bucket:
+    help: create an s3 bucket
+
+  fluent_bit_get_conf:
+    help: generate configuration for fluent bit
+
+  fluent_bit_set_conf:
+    help: apply fluent bit configuration
 
   system_logs:
-    help: "     see logs from ystem services"
-    files:
-      - ./runner.use_context.sh
+    help: see logs from system services
 
   remove_node_group:
-    help: "     delete a node group from the cluster (from configuration file)"
+    help: delete a node group from the cluster (from configuration file)
     files:
       - eksctl/runner.dev.yaml
-
-  use_context:
-    help: "    set kubeconfig context"

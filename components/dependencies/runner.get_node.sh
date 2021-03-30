@@ -12,9 +12,9 @@ project_root="${this_directory}/../.."
 
   if [[ ! -d "${node_home}" ]];then
     ./do --host \
-      --component binary --command install \
-      --executable node \
-      --architecture "${architecture}" \
-      --version "${node_version}"
+      --component="binary" --command="install" \
+      --executable="node" \
+      --architecture="${architecture}" \
+      --version="${node_version}"
     fi
 )

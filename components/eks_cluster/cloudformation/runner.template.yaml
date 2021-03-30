@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Function used to create docker registries in AWS
+
+Resources:
+  aerontest-cluster:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: aerontest-cluster
+      RepositoryPolicyText:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowPush
+            Effect: Allow
+            Principal:
+              AWS:
+                - <% user_arn %>
+            Action:
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+              - ecr:BatchCheckLayerAvailability
+              - ecr:PutImage
+              - ecr:InitiateLayerUpload
+              - ecr:UploadLayerPart
+              - ecr:CompleteLayerUpload
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage

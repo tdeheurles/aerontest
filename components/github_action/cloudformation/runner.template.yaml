@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Function used to create docker registries in AWS
+
+Resources:
+  github-user:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: <% github-action-username %>
+      Policies:
+        - PolicyName: EcrPullPush
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement: [
+              - Sid": EcrPullPush
+                Effect": Allow
+                Action":
+                   - ecr:GetDownloadUrlForLayer
+                   - ecr:BatchGetImage
+                   - ecr:BatchCheckLayerAvailability
+                   - ecr:PutImage
+                   - ecr:InitiateLayerUpload
+                   - ecr:UploadLayerPart
+                   - ecr:CompleteLayerUpload
+                Resource: "arn:aws:ecr:us-east-1:123456789012:repository/my-repo"

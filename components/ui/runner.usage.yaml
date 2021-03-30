@@ -1,9 +1,14 @@
 definition: Ui sample
 family: frontend
 commands:
+  build_and_push:
+    help: build and push a docker image using kaniko
+
   start:
     help: start client
+
   get_dependencies:
     help: install ui dependencies
+
   generate:
     help: generate javascript code from proto files
