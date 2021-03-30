@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-build_pipeline=${1}
-git_branch=${2}
-git_sha=${3}
-docker_registry=${4}
-semantic_versioning=${5}
-docker_username=${6}
-docker_password=${7}
+build_pipeline="<% build_pipeline %>"
+git_branch="<% git_branch %>"
+git_sha="<% git_sha %>"
+docker_registry="<% docker_registry %>"
+semantic_versioning="<% semantic_versioning %>"
+docker_username="<% docker_username %>"
+docker_password="<% docker_password %>"
 
 build_number=${git_sha:0:8}
 git_short_sha=${git_sha:0:8}

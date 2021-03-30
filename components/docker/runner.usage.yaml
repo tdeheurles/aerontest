@@ -1,0 +1,5 @@
+definition: build docker image
+family: cicd
+commands:
+  build_and_push:
+    help: build and push docker image
