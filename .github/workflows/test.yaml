@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: registry.gitlab.com/atyos/atyosrunner:1.4.1.b39c75ef
+      image: registry.gitlab.com/atyos/atyosrunner:1.4.1.a6f5bd12
     steps:
       - name: git checkout
         id: git-checkout

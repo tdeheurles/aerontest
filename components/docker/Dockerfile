@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/atyos/atyosrunner:1.4.1.b39c75ef
+FROM registry.gitlab.com/atyos/atyosrunner:1.4.1.a6f5bd12
 
 ENV PROJECT           /project
 ENV RUNNER_DOTENV_DIR ${PROJECT}
