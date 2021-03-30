@@ -42,6 +42,7 @@ if [ -n "${git_branch##*/*}" ]; then
   command="${command} --destination ${destination_4}"
 fi
 command="${command} --destination ${destination_5}"
+command="${command} --force"
 
 echo -e "\e[36m------------ Variables dump ------------\e[39m"
 echo "command: ${command}"
