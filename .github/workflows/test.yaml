@@ -20,7 +20,7 @@ jobs:
           GIT_BRANCH=${GITHUB_REF} \
           GIT_SHORT_SHA=${GITHUB_SHA:0:8} \
           DOCKER_REGISTRY=tdeheurles/aerontest \
-          SEMANTIC_VERSIONING=(cat ../../version.txt) \
+          SEMANTIC_VERSIONING=$(cat ../../version.txt) \
           DOCKER_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
           DOCKER_PASSWORD=${{ secrets.DOCKERHUB_TOKEN }} \
             bash -c ./build_and_push.sh
