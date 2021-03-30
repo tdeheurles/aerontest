@@ -15,12 +15,4 @@ jobs:
           #!/bin/bash
           set -eu
           cd components/docker
-
-          bash -c ./build_and_push.sh \
-            ${GITHUB_ACTION} \
-            ${GITHUB_REF} \
-            ${GITHUB_SHA} \
-            tdeheurles/aerontest \
-            $(cat ../../version.txt) \
-            ${{ secrets.DOCKERHUB_USERNAME }} \
-            ${{ secrets.DOCKERHUB_TOKEN }}
+          bash -c "./build_and_push.sh ${GITHUB_ACTION} ${GITHUB_REF} ${GITHUB_SHA} tdeheurles/aerontest $(cat ../../version.txt) ${{ secrets.DOCKERHUB_USERNAME }} ${{ secrets.DOCKERHUB_TOKEN }}"
