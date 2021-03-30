@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-build_number=${1}
-build_pipeline=${2}
-git_branch=${3}
-git_short_sha=${4}
-docker_registry=${5}
-semantic_versioning=${6}
-docker_username=${7}
-docker_password=${8}
+build_pipeline=${1}
+git_branch=${2}
+git_sha=${3}
+docker_registry=${4}
+semantic_versioning=${5}
+docker_username=${6}
+docker_password=${7}
+
+build_number=${git_sha:0:8}
+git_short_sha=${git_sha:0:8}
 
 this_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 project_root="${this_directory}/../.."
