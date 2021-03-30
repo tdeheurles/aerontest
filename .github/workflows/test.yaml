@@ -16,12 +16,12 @@ jobs:
           set -eu
           cd components/docker
 
-          BUILD_NUMBER:${GITHUB_SHA:0:8} \
-          BUILD_PIPELINE=${GITHUB_ACTION} \
-          GIT_BRANCH=${GITHUB_REF} \
-          GIT_SHORT_SHA=${GITHUB_SHA:0:8} \
-          DOCKER_REGISTRY=tdeheurles/aerontest \
-          SEMANTIC_VERSIONING=(cat ../../version.txt) \
-          DOCKER_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
-          DOCKER_PASSWORD=${{ secrets.DOCKERHUB_TOKEN }} \
-            bash -c ./build_and_push.sh
+          ./build_and_push.sh \
+            ${GITHUB_SHA:0:8} \
+            ${GITHUB_ACTION} \
+            ${GITHUB_REF} \
+            ${GITHUB_SHA:0:8} \
+            tdeheurles/aerontest \
+            $(cat ../../version.txt) \
+            ${{ secrets.DOCKERHUB_USERNAME }} \
+            ${{ secrets.DOCKERHUB_TOKEN }}
