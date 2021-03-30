@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -euo pipefail
 
 build_number=${BUILD_NUMBER:?$(echo -e "\e[92mPlease provide environment variable BUILD_NUMBER\e[39m" && exit 1)}       # CI_COMMIT_SHORT_SHA
 build_pipeline=${BUILD_PIPELINE:?$(echo -e "\e[92mPlease provide environment variable BUILD_PIPELINE\e[39m" && exit 1)} # CI_PIPELINE_ID
