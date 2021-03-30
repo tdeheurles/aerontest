@@ -16,7 +16,8 @@ this_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 project_root="${this_directory}/../.."
 
 mkdir -p /kaniko/.docker
-echo "{\"auths\":{\"$docker_registry\":{\"username\":\"$docker_username\",\"password\":\"$docker_password\"}}}" >/kaniko/.docker/config.json
+echo "{\"auths\": {\"https://index.docker.io/v1/\": {\"auth\": \"$(echo -n "${docker_username}:${docker_password}" | base64)\"}}}" \
+  > /kaniko/.docker/config.json
 
 cd "${project_root}" || exit 1
 ./do --host --component="dependencies" --command="get_node"
