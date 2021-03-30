@@ -12,8 +12,7 @@ jobs:
 
       - name: build, tag and push
         run: |
-          #!/usr/bin/env bash
-          set -euo pipefail
+          set -eu
           cd components/docker
 
           BUILD_NUMBER:${GITHUB_SHA:0:8} \
@@ -24,4 +23,4 @@ jobs:
           SEMANTIC_VERSIONING=(cat ../../version.txt) \
           DOCKER_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} \
           DOCKER_PASSWORD=${{ secrets.DOCKERHUB_TOKEN }} \
-            ./build_and_push.sh
+            bash -c ./build_and_push.sh
