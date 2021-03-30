@@ -15,7 +15,7 @@ jobs:
           set -eu
           cd components/docker
 
-          BUILD_NUMBER:${GITHUB_SHA:0:8} \
+          BUILD_NUMBER=${GITHUB_SHA:0:8} \
           BUILD_PIPELINE=${GITHUB_ACTION} \
           GIT_BRANCH=${GITHUB_REF} \
           GIT_SHORT_SHA=${GITHUB_SHA:0:8} \
