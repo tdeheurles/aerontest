@@ -38,7 +38,7 @@ command="${command} --dockerfile ${this_directory}/Dockerfile"
 command="${command} --destination ${destination_1}"
 command="${command} --destination ${destination_2}"
 command="${command} --destination ${destination_3}"
-if [ -n "${CI_COMMIT_BRANCH##*/*}" ]; then
+if [ -n "${git_branch##*/*}" ]; then
   command="${command} --destination ${destination_4}"
 fi
 command="${command} --destination ${destination_5}"
