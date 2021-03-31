@@ -19,6 +19,9 @@ mkdir -p /kaniko/.docker
 
 auth=$(echo -n "${docker_username}:${docker_password}" | base64)
 echo "{\"auths\":{\"https://index.docker.io/v1/\":{\"auth\":\"${auth}\"}}}" > /kaniko/.docker/config.json
+echo "{\"auths\":{\"https://index.docker.io/v1/\":{\"username\":\"$docker_username\",\"password\":\"$docker_password\"}}}" > /kaniko/.docker/config.json
+
+cat /kaniko/.docker/config.json
 
 cd "${project_root}" || exit 1
 ./do --host --component="dependencies" --command="get_node"
@@ -36,6 +39,7 @@ command="/kaniko/executor"
 command="${command} --cache=true"
 command="${command} --cache-repo ${docker_registry}"
 command="${command} --context ${project_root}"
+command="${command} --registry-mirror index.docker.io/v1"
 command="${command} --dockerfile ${this_directory}/Dockerfile"
 command="${command} --destination ${destination_1}"
 command="${command} --destination ${destination_2}"
