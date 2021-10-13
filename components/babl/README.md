@@ -96,3 +96,20 @@ node_ip=10.0.0.5
 RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:8081" \
 ./do --component="babl" --command="server_v1" --demo=4 --node_ip="${node_ip}"
 ```
+
+## Babl.Demo5
+- works with:
+  - [Cluster.Demo4](../Cluster/README.md#clusterdemo4)
+  - [Ui.Demo4](../ui/README.md#uidemo4)
+  - [messages.demo4](../messages/README.md#messagesdemo4)
+- changelog since [Babl.Demo4](#babldemo4):
+  - TODO
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/babl/Demo5Server.java)
+### Run
+```shell
+# You have to first run the Cluster.Demo3
+node_ip=10.0.0.5
+RUNNER_DOCKER_ARGS="--ip ${node_ip} --network=aeron --shm-size=512mb -p 8081:8081" \
+./do --component="babl" --command="server_v1" --demo=5 --node_ip="${node_ip}"
+```

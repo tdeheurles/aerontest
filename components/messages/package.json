@@ -3,9 +3,9 @@
   "repository": "-",
   "license": "UNLICENSED",
   "dependencies": {
-    "@improbable-eng/grpc-web": "^0.14.0",
-    "@types/google-protobuf": "^3.7.4",
-    "google-protobuf": "^3.15.6",
+    "@improbable-eng/grpc-web": "^0.14.1",
+    "@types/google-protobuf": "^3.15.5",
+    "google-protobuf": "^3.18.1",
     "ts-protoc-gen": "^0.14.0"
   }
 }

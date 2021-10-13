@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+/kaniko/executor version
+exit
+
 build_pipeline="<% build_pipeline %>"
 git_branch="<% git_branch %>"
 git_sha="<% git_sha %>"

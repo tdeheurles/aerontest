@@ -1,0 +1,25 @@
+syntax = 'proto3';
+
+option java_multiple_files = true;
+package com.tdeheurles.aerontest.protobuf;
+
+message Demo4FullStateRequest {
+}
+message Demo4FullState {
+  repeated string squares = 1;
+  bool xIsNext = 2;
+  string winner = 3;
+}
+message Demo4Move {
+  int32 position = 1;
+}
+message Demo4Reset {
+}
+message Demo4Wrapper {
+  oneof message {
+    Demo4FullStateRequest fullStateRequest = 1;
+    Demo4FullState fullState = 2;
+    Demo4Move move = 3;
+    Demo4Reset reset = 4;
+  }
+}

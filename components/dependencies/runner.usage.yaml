@@ -9,3 +9,5 @@ commands:
     help: install java runtime environment
   get_node:
     help: install node
+  get_protoc:
+    help: install protoc

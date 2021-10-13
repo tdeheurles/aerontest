@@ -147,3 +147,32 @@ RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
 ./do --component="Cluster" --command="exec_node_v0" \
      --demo=3 --node_id=2 --node_ip="${node_ip}"
 ```
+
+## Cluster.Demo4
+- Works with:
+  - [Babl.Demo5](../babl/README.md#babldemo5)
+  - [messages.demo4](../messages/README.md#messagesdemo4)
+- changelog since [Cluster.Demo3](#clusterdemo3):
+  - TODO
+### Code
+- [main](./src/main/java/com/tdeheurles/aerontest/cluster/Demo4Cluster.java)
+### Run
+On 3 different terminals, execute:
+```shell
+node_ip=10.0.0.2
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=4 --node_id=0 --node_ip="${node_ip}"
+```
+```shell
+node_ip=10.0.0.3
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=4 --node_id=1 --node_ip="${node_ip}"
+```
+```shell
+node_ip=10.0.0.4
+RUNNER_DOCKER_ARGS="--network=aeron --ip=${node_ip} --shm-size=512Mb" \
+./do --component="Cluster" --command="exec_node_v0" \
+     --demo=4 --node_id=2 --node_ip="${node_ip}"
+```
