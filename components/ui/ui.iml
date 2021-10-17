@@ -5,6 +5,9 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/spikes/angular-tuto/dist" />
       <excludeFolder url="file://$MODULE_DIR$/spikes/angular-tuto/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/demo4_flutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/demo4_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/demo4_flutter/.pub" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

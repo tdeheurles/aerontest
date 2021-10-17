@@ -30,3 +30,17 @@ It's a composition of these 4 components:
 0) build and run the cluster
 0) build and run the babl server
 0) build and run the UI server
+
+## Ui-Babl-Cluster.Demo2 - Card Game
+The Card Game example will demo a more complete state handled by server with a more advanced UI.
+
+It's a composition of these 4 components:
+- [messages.Demo4](../messages/README.md#messagesdemo4)
+- [Cluster.Demo4](../Cluster/README.md#clusterdemo4)
+- [Babl.Demo5](../babl/README.md#babldemo5)
+- [UI.Demo4](../ui/README.md#uidemo4)
+
+0) build the messages
+0) build and run the cluster
+0) build and run the babl server
+0) build and run the UI server

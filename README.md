@@ -6,6 +6,7 @@ These are my notes around the journey into Aeron.
 - [`UI` <--**WebSocket**--> `Babl` <--**Aeron**--> `ClusteredLogic`](./components/Documentation/ui-babl-aeroncluster.md)
     - [`ui-babl-cluster.Demo0 - ping pong`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo0---pingpong)
     - [`ui-babl-cluster.Demo1 - tic tac toe`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo1---tic-tac-toe)
+    - [`ui-babl-cluster.Demo2 - card game`](./components/Documentation/ui-babl-aeroncluster.md#ui-babl-clusterdemo2---card-game)
 - [AeronCluster](./components/Cluster/README.md)
 - [BablWS](./components/babl/README.md)
 - [gRPC](./components/grpc/README.md)
@@ -14,17 +15,17 @@ These are my notes around the journey into Aeron.
 - [Protocol Buffer](./components/messages/README.md)
 
 ## Progressive Demos
-Each `component` is organised in demo levels (demo0, demo1, etc). Then, the demos from each component are composed together to create higher level demos.
+Each `component` is organised in demo levels (demo0, demo1, etc.). Then, the demos from each component are composed together to create higher level demos.
 Intention is to be able to decrease the level of the demo to understand the `component` better. 
 
 ## Elements
 ### Aeron
-As defined on its github, Aeron is an efficient reliable UDP unicast, UDP multicast, and IPC message transport.
+As defined on its GitHub, Aeron is an efficient reliable UDP unicast, UDP multicast, and IPC message transport.
 Reading the content on [the official github](https://github.com/real-logic/aeron) and [its wiki](https://github.com/real-logic/aeron/wiki) is certainly mandatory.
 Another great source will be [the Aeron Cookbook](https://aeroncookbook.com/).
 ```markdown
 # TODO:
-- add the link to all aeron tutorials present somewhere on Aeron github
+- add the link to all aeron tutorials present somewhere on Aeron GitHub
 ```
 
 ### AeronCluster
