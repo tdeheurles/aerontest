@@ -7,6 +7,7 @@ components/**/.gradle
 components/**/build
 components/Cluster/cluster_data
 
-# ATYOS RUNNER
+# DEVOPS RUNNER
+components/binaries
 do.secret.env
 do.kubeconfig

@@ -56,7 +56,7 @@ public class Demo4ApplicationGuiToCluster implements Application {
             idleStrategy.reset();
             ConsoleLog.warning_0("Sending message ...");
             while (aeronCluster.offer(msg, offset, length) < 0) {
-                ConsoleLog.warning_0("Message was not sent ...");
+                ConsoleLog.warning_0 ("Message was not sent ...");
                 idleStrategy.idle(aeronCluster.pollEgress());
             }
 
