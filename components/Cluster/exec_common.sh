@@ -40,7 +40,7 @@ start_clustered_node(){
   # Large Timeout are present for debug purposes
   "${JAVA}" \
     -cp "${JAR}" \
-    -javaagent:"${THIS_DIRECTORY}"/../binaries/jar/aeron-agent-1.32.1-SNAPSHOT.jar \
+    -javaagent:"${THIS_DIRECTORY}"/../binaries/jar/aeron-agent-1.33.0-SNAPSHOT.jar \
       -Daeron.driver.timeout=60000000000 \
       -Daeron.cluster.session.timeout=60000000000 \
       -Daeron.client.liveness.timeout=60000000000 \

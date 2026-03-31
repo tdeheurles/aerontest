@@ -11,6 +11,7 @@ project_root="${THIS_DIRECTORY}/../.."
 (
   cd "${project_root}" || exit 1
   ./do --host --component="dependencies" --command="get_jre"
+  ./do --host --component="dependencies" --command="get_aeron-agent"
 
   JAVA="${project_root}/${zulu_jre_java}"
 

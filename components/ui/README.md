@@ -31,6 +31,12 @@
 - [project root](./demo2)
 ### Run
 ```shell
+(
+cd components/ui/demo2
+npm install
+)
+```
+```shell
 RUNNER_DOCKER_ARGS="--network=aeron -p 4200:4200" \
 ./do --component="ui" --command="start" --id=2
 ```

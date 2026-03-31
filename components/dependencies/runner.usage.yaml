@@ -11,3 +11,5 @@ commands:
     help: install node
   get_protoc:
     help: install protoc
+  get_aeron-agent:
+    help: install aeron-agent
